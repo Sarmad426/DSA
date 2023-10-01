@@ -1,6 +1,6 @@
 # Divide and Conquer
 
-A problem is divided into sub-problems. Those sub-problems are solved individually and then merged to obtain the solution to the original problem.
+A problem is divided into **sub-problems**. Those sub-problems are solved individually and then merged to obtain the solution to the original problem.
 
 ## Examples
 
