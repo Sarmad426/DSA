@@ -52,3 +52,53 @@ In this code we inserted an item at a specific index in this array.
 - `length=5` it the length of the array.
 
 So, we inserted `item=10` at the `index=3`.
+
+### Insert at the beginning
+
+When the insertion happens at the beginning, it causes all the existing data items to shift
+one step downward. Here, we design and implement an algorithm to insert an element at
+the beginning of an array.
+
+### Pseudo Algorithm
+
+``` pseudo
+    begin
+IF N = MAX, return
+ELSE
+ N = N + 1
+ 
+ For All Elements in A
+ Move to next adjacent location
+ 
+ A[FIRST] = New_Element
+ 
+end 
+```
+
+### C++ code Example
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[4] = {2, 3, 4};
+    int index = 0, length = 3, item = 1;
+    for (int i = length; i > index; i--)
+    {
+        arr[i] = arr[i - 1];
+    }
+    arr[index] = item;
+    cout<<"[";
+    for (int i = 0; i < length + 1; i++)
+    {
+        cout << arr[i];
+        if (i < length)
+        {
+            cout<< ", ";
+        }
+    }
+    cout<<"]"<<endl;
+}
+```
