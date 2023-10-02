@@ -13,6 +13,7 @@ int main()
         arr[i] = arr[i - 1];
     }
     arr[index] = item;
+    cout << "[";
     for (int i = 0; i < length + 1; i++)
     {
         cout << arr[i];
@@ -21,4 +22,5 @@ int main()
             cout << ", ";
         }
     }
+    cout << "]" << endl;
 }
