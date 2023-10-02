@@ -55,9 +55,7 @@ So, we inserted `item=10` at the `index=3`.
 
 ### Insert at the beginning
 
-When the insertion happens at the beginning, it causes all the existing data items to shift
-one step downward. Here, we design and implement an algorithm to insert an element at
-the beginning of an array.
+> When the insertion happens at the beginning, it causes all the existing data items to shift one step downward. Here, we design and implement an algorithm to insert an element at the beginning of an array.
 
 ### Pseudo Algorithm
 
