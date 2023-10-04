@@ -4,8 +4,9 @@ Deleting an item from an array removes an item from the array on a specific inde
 
 ## Algorithm
 
-Consider `arr` is a linear array with `n` elements and `k` is a positive integer such that `K<=N`.
->Following is the algorithm to delete an element available at the Kth position of LA.
+Consider `arr` is a linear array with `n` elements and `k` is a positive integer such that `K<=N`. k is the index from the value is to be removed.
+
+> Following is the algorithm to delete an element available at the Kth position of arr.
 
 ``` pseudo
 1. Start
@@ -23,17 +24,17 @@ Consider `arr` is a linear array with `n` elements and `k` is a positive integer
 #include<iostream>
 using namespace std;
 int main(){
-    int arr[4] = {2,3,4,6};
-    int length=4,index=4;
-    int j=index,i;
+    int arr[5] = {1,2,8,3,4};
+    int length=5,index=3;
+    int j=index;
     while(j<length){
         arr[j-1] = arr[j];
-        j-=1;
+        j+=1;
     }
     length-=1;
     cout<<"After Deletion: "<<endl;
     cout<<"[";
-    for(i=0;i<length;i++){
+    for(int i=0;i<length;i++){
         cout<<arr[i];
         if(i<length-1){
             cout<<",";
@@ -41,6 +42,7 @@ int main(){
     }
     cout<<"]";
 }
+
 ```
 
-**Explanation:** In this code example we have removed the 4th index value which is the last index.`k=4` is the index where value is to be removed and `6` is the value to be removed.
+**Explanation:** In this code example we have removed the 2nd index where value is `8`.
