@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A **stack** is a linear data structure that follows the Last-In-First-Out (LIFO) principle.
+A **Stack** is a linear data structure that follows the Last-In-First-Out (LIFO) principle.
 It is an **Abstract Data Type** (ADT) and named stack as it behaves like a stack. For Example a deck of cards or pile of cards.
 In a stack, elements are added and removed from the top, which is also known as the "push" and "pop" operations, respectively.
 
