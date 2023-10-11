@@ -95,6 +95,17 @@ int peek(){
 
 ```
 
+## Push Operation
+
+The Process of putting a new element onto a stack is known as **Push** Operation.
+Series of Steps:
+
+- **Step 1:** Check if Stack is Full.
+- **Step 2:** If the stack is full, generate an error and exit.
+- **Step 3:** If the stack is not full, increment **top** to point the next empty space.
+- **Step 4:** Adds data element where top is pointing.
+- **Step 5:** Returns Success.
+
 ## All Stack Operations in one Program (Using Array)
 
 Here's a basic implementation of a stack in C++ using an array:
