@@ -106,6 +106,21 @@ Series of Steps:
 - **Step 4:** Adds data element where top is pointing.
 - **Step 5:** Returns Success.
 
+### Algo for Push operation
+
+``` pseudo
+    begin procedure push: stack, data
+        if stack is full
+            return null
+        endif
+        
+        top ← top + 1
+
+        stack[top] ← data
+    end procedure
+
+```
+
 ## All Stack Operations in one Program (Using Array)
 
 Here's a basic implementation of a stack in C++ using an array:
