@@ -18,7 +18,26 @@ A stack typically supports the following operations:
 4. **isFull**: Checks if stack is full.
 5. **isEmpty**: Check if the stack is empty.
 
+A Stack can be implemented by means of array, Structure, pointer and linked list. Stack Can either be a fixed size one or it may have a sense of dynamic resizing. Here we are implementing stack using array.
+
+## Algorithm of Peek() function
+
+```pseudo
+    
+    begin procedure peek
+        return stack[top]
+    end procedure 
+```
+
 ## Implementation in C++
+
+``` c++
+int peek(){
+    return stack[top];
+}
+```
+
+## All Stack Operations in one Program (Using Array)
 
 Here's a basic implementation of a stack in C++ using an array:
 
