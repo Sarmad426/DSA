@@ -250,3 +250,81 @@ int main() {
 ```
 
 This code creates a stack, pushes three elements onto it, and then pops them, displaying the top element and size in between.
+
+## Book Code for All Stack Operations
+
+```c++
+#include <iostream>
+using namespace std;
+const int MAXSIZE = 8;
+int stack[8];
+int top = -1;
+
+bool isEmpty()
+{
+    return top == -1;
+}
+
+bool isFull()
+{
+    return top == MAXSIZE - 1;
+}
+
+int peek()
+{
+    return stack[top];
+}
+
+int pop()
+{
+    int data;
+    if (!isEmpty())
+    {
+        data = stack[top];
+        top = top - 1;
+        return data;
+    }
+    else
+    {
+        cout << "Could not retrieve data, Stack is empty." << endl;
+        return -1; // Return a sentinel value or handle the error as needed
+    }
+}
+
+void push(int data)
+{
+    if (!isFull())
+    {
+        top = top + 1;
+        stack[top] = data;
+    }
+    else
+    {
+        cout << "Could not insert data, Stack is full." << endl;
+    }
+}
+
+int main()
+{
+    push(10);
+    push(20);
+    push(30);
+
+    cout << "Top element: " << peek() << endl;
+
+    pop();
+    pop();
+
+    cout << "Top element: " << peek() << endl;
+}
+```
+
+### Explanation
+
+Data types: In C++, we use bool for the isEmpty() and isFull() functions to return true or false instead of 1 or 0. The other functions and variables remain the same.
+
+I/O Functions: In C++, we use std::cout and std::cin for input and output instead of printf and scanf in C. The error messages are printed using std::cout.
+
+The main function: In C++, the main function is the entry point of the program, and it calls the stack operations with the C++ functions push(), pop(), peek(), and utilizes std::cout for output.
+
+Error Handling: When an error occurs (e.g., stack underflow or overflow), C++ code returns a sentinel value (in this case, -1) to indicate the error condition, and an error message is printed to the console using std::cout. You can modify error handling as needed.
