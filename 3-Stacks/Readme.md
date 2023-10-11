@@ -150,6 +150,36 @@ memory space.
 - **Step 4 :** Decreases the value of top by 1.
 - **Step 5 :** Returns success.
 
+### Algorithm for Pop Operation
+
+```pseudo
+    begin procedure pop: stack
+        if stack is empty
+            return null
+        endif
+
+        data ← stack[top]
+
+        top ← top - 1
+
+        return data
+    end procedure
+```
+
+### C++ code for pop Operation
+
+```c++
+    int pop(int data) {
+        if(!isempty()) {
+            data = stack[top];
+            top = top - 1;
+            return data;
+        }else {
+ cout<<"Could not retrieve data, Stack is empty.\n";
+ }
+}
+```
+
 ## All Stack Operations in one Program (Using Array)
 
 Here's a basic implementation of a stack in C++ using an array:
@@ -157,80 +187,65 @@ Here's a basic implementation of a stack in C++ using an array:
 ```cpp
 #include <iostream>
 using namespace std;
-
-const int MAX_SIZE = 100; // Maximum size of the stack
-
 class Stack {
 private:
+    static const int MAX_SIZE = 100;
     int arr[MAX_SIZE];
     int top;
 
 public:
     Stack() {
-        top = -1; // Initialize the top of the stack to -1 (empty)
+        top = -1;
     }
 
-    // Push operation
-    void push(int value) {
-        if (top >= MAX_SIZE - 1) {
-            cout << "Stack Overflow" << endl;
+    bool isEmpty() {
+        return top == -1;
+    }
+
+    bool isFull() {
+        return top == MAX_SIZE - 1;
+    }
+
+    void push(int data) {
+        if (isFull()) {
+            cout << "Stack overflow: Cannot push " << data << endl;
             return;
         }
-        arr[++top] = value;
+        arr[++top] = data;
+        cout << data << " pushed into the stack." << endl;
     }
 
-    // Pop operation
-    int pop() {
-        if (top < 0) {
-            cout << "Stack Underflow" << endl;
-            return -1; // Assuming -1 represents an error value
+    void pop() {
+        if (isEmpty()) {
+            cout << "Stack is empty. Cannot pop." << endl;
+            return;
         }
-        return arr[top--];
+        cout << arr[top] << " popped from the stack: "<<endl;
+        top--;
     }
 
-    // Top/Peek operation
     int peek() {
-        if (top < 0) {
-            cout << "Stack is empty" << endl;
-            return -1; // Assuming -1 represents an error value
+        if (isEmpty()) {
+            cerr << "Stack is empty. Cannot peek." <<endl;
+            return -1; // Return a sentinel value or handle the error as needed
         }
         return arr[top];
     }
-
-    // Size operation
-    int size() {
-        return top + 1;
-    }
-
-    // Empty operation
-    bool empty() {
-        return top == -1;
-    }
 };
-```
 
-## Usage Example
-
-Here's an example of how to use the `Stack` class:
-
-```cpp
 int main() {
     Stack stack;
 
-    stack.push(1);
-    stack.push(2);
-    stack.push(3);
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
 
-    cout << "Top element: " << stack.peek() << endl;
-    cout << "Stack size: " << stack.size() << endl;
+    cout << "Top element: " << stack.peek() <<endl;
 
-    cout << "Popping elements: ";
-    while (!stack.empty()) {
-        cout << stack.pop() << " ";
-    }
-    cout << endl;
+    stack.pop();
+    stack.pop();
 
-    return 0;
+    cout << "Top element: " << stack.peek() <<endl;
 }
 ```
 
