@@ -37,6 +37,34 @@ int peek(){
 }
 ```
 
+## isFull
+
+### Algo of isFull()
+
+``` pseudo
+    
+    begin procedure isFull
+        if top equals to Maxsize
+            return true
+        else 
+            return false
+        endif
+
+    end procedure
+```
+
+## C++ code
+
+```c++
+    bool isFull(){
+        if(top==max_size){
+            return true;
+        }else{
+            return false;
+        }
+    }
+```
+
 ## All Stack Operations in one Program (Using Array)
 
 Here's a basic implementation of a stack in C++ using an array:
