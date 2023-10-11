@@ -53,7 +53,7 @@ int peek(){
     end procedure
 ```
 
-## C++ code
+### C++ code for isFull()
 
 ```c++
     bool isFull(){
@@ -63,6 +63,36 @@ int peek(){
             return false;
         }
     }
+```
+
+## isEmpty()
+
+### Algo of isEmpty()
+
+```pseudo
+
+    begin procedure isempty
+        if top less than 1
+            return true
+        else
+            return false
+        endif
+
+    end procedure
+
+```
+
+### C++ code for isEmpty()
+
+```c++
+
+    bool isempty(){
+        if(top==-1)
+            return true;
+        else
+            return false;
+    }
+
 ```
 
 ## All Stack Operations in one Program (Using Array)
