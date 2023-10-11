@@ -250,5 +250,3 @@ int main() {
 ```
 
 This code creates a stack, pushes three elements onto it, and then pops them, displaying the top element and size in between.
-
-This is a basic implementation of a stack in C++. Depending on your needs, you can modify and expand upon this implementation to suit your specific requirements.
