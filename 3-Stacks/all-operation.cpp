@@ -1,62 +1,62 @@
 #include <iostream>
 using namespace std;
-
-const int MAX_SIZE = 100; // Maximum size of the stack
-
-class Stack
-{
+class Stack {
 private:
+    static const int MAX_SIZE = 100;
     int arr[MAX_SIZE];
     int top;
 
 public:
-    Stack()
-    {
-        top = -1; // Initialize the top of the stack to -1 (empty)
+    Stack() {
+        top = -1;
     }
 
-    // Push operation
-    void push(int value)
-    {
-        if (top >= MAX_SIZE - 1)
-        {
-            cout << "Stack Overflow" << endl;
+    bool isEmpty() {
+        return top == -1;
+    }
+
+    bool isFull() {
+        return top == MAX_SIZE - 1;
+    }
+
+    void push(int data) {
+        if (isFull()) {
+            cout << "Stack overflow: Cannot push " << data << endl;
             return;
         }
-        arr[++top] = value;
+        arr[++top] = data;
+        cout << data << " pushed into the stack." << endl;
     }
 
-    // Pop operation
-    int pop()
-    {
-        if (top < 0)
-        {
-            cout << "Stack Underflow" << endl;
-            return -1; // Assuming -1 represents an error value
+    void pop() {
+        if (isEmpty()) {
+            cout << "Stack is empty. Cannot pop." << endl;
+            return;
         }
-        return arr[top--];
+        cout << arr[top] << " popped from the stack: "<<endl;
+        top--;
     }
 
-    // Top/Peek operation
-    int peek()
-    {
-        if (top < 0)
-        {
-            cout << "Stack is empty" << endl;
-            return -1; // Assuming -1 represents an error value
+    int peek() {
+        if (isEmpty()) {
+            cerr << "Stack is empty. Cannot peek." <<endl;
+            return -1; // Return a sentinel value or handle the error as needed
         }
         return arr[top];
     }
-
-    // Size operation
-    int size()
-    {
-        return top + 1;
-    }
-
-    // Empty operation
-    bool empty()
-    {
-        return top == -1;
-    }
 };
+
+int main() {
+    Stack stack;
+
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+
+    cout << "Top element: " << stack.peek() <<endl;
+
+    stack.pop();
+    stack.pop();
+
+    cout << "Top element: " << stack.peek() <<endl;
+}
