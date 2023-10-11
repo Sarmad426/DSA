@@ -113,13 +113,42 @@ Series of Steps:
         if stack is full
             return null
         endif
-        
+
         top ← top + 1
 
         stack[top] ← data
     end procedure
 
 ```
+
+### C++ code for Push Operation
+
+```c++
+
+    void push(int data){
+        if(!isFull()){
+            top+=1;
+            stack[top] = data;
+        }else{
+            cout<<"Could Not insert data, Stack is full. \n"; 
+        }
+    }
+
+```
+
+## Pop Operation
+
+Accessing the content while removing it from the stack, is known as a **Pop** Operation. In an array implementation of pop() operation, the data element is not actually removed, instead top is decremented to a lower position in the stack to point to the next value.
+But in linked-list implementation, pop() actually removes data element and deallocates
+memory space.
+
+### Steps
+
+- **Step 1 :** Check if stack is empty.
+- **Step 2 :** If the stack is empty, generate an error and exit.
+- **Step 3 :** If the stack is not empty, access the data element at which top is pointing.
+- **Step 4 :** Decreases the value of top by 1.
+- **Step 5 :** Returns success.
 
 ## All Stack Operations in one Program (Using Array)
 
