@@ -93,5 +93,16 @@ bool isempty() {
     else
         return false;
 }
-
 ```
+
+## Enqueue Operation
+
+Queues maintain two data pointers, front and rear.Its operations are comparatively difficult to implement than that of stacks.
+
+### Steps to Enqueue (insert) data
+
+- **Step 1:** Check if the queue is full.
+- **Step 2:** If the queue is full, produce overflow error and exit.
+- **Step 3:** If the queue is not full, increment rear pointer to point the next empty space.
+- **Step 4:** Add data element to the queue location, where rear is pointing.
+- **Step 5:** Return Success.
