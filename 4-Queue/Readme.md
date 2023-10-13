@@ -106,3 +106,33 @@ Queues maintain two data pointers, front and rear.Its operations are comparative
 - **Step 3:** If the queue is not full, increment rear pointer to point the next empty space.
 - **Step 4:** Add data element to the queue location, where rear is pointing.
 - **Step 5:** Return Success.
+
+Sometimes, we also check if the queue is initialized ot not, to handle any unforeseen situations.
+
+## Algorithm of Enqueue Operation
+
+```pseudo
+procedure enqueue (data)
+    if queue is full
+        return overflow
+    endif
+
+    rear +=1
+    queue[rear] = data
+    return true
+end procedure
+```
+
+## C++ code for Enqueue
+
+```c++
+int enqueue(int data){
+    if(isfull())
+        return 0;
+
+    rear+=1;
+    queue[rear] = data;
+
+    return 1;
+}
+```
