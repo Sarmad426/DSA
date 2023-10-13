@@ -136,3 +136,15 @@ int enqueue(int data){
     return 1;
 }
 ```
+
+## Dequeue Operation
+
+Accessing data from the queue is a process of two tasks - accessing the data where front is pointing and remove the data after access.
+
+### Steps
+
+- **Step 1:** Check if the queue is empty.
+- **Step 2:** If the queue is empty, produce underflow error and exit.
+- **Step 3:** If queue is not empty, access the data where **front** is pointing.
+- **Step 4:** Increment **front** pointer to point to the next available data element.
+- **Step 5:** Return Success.
