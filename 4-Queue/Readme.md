@@ -35,7 +35,7 @@ This function helps to see the data at the front of the queue.
 
 ```pseudo
 begin procedure peek
-return queue[front]
+    return queue[front]
 end procedure
 ```
 
@@ -44,5 +44,30 @@ end procedure
 ```c++
 int peek(){
     return queue[front];
+}
+```
+
+## isfull()
+
+For a single dimensional array to implement queue, we just check for the rear pointer to reach `MAXSIZE` to determine that queue is full. In case of queue in circular linked-list, the algorithm differ.
+
+```pseudo
+begin procedure isfull
+    if rear equals to MAXSIZE
+        return true
+    else
+        return false
+    endif
+end procedure
+```
+
+### C++ implementation for isfull()
+
+```c++
+bool isfull(){
+    if(rear == MAXSIZE - 1)
+        return true;
+    else
+        return false
 }
 ```
