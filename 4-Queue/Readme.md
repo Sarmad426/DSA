@@ -148,3 +148,31 @@ Accessing data from the queue is a process of two tasks - accessing the data whe
 - **Step 3:** If queue is not empty, access the data where **front** is pointing.
 - **Step 4:** Increment **front** pointer to point to the next available data element.
 - **Step 5:** Return Success.
+
+## Dequeue Algorithm
+
+```pseudo
+procedure dequeue
+    if queue is empty
+        return underflow
+    endif
+
+    data = queue[front]
+    front+=1
+
+    return true
+end procedure
+```
+
+## C++ implementation of dequeue()
+
+```c++
+int dequeue(){
+    if(isempty()){
+        return 0;
+    }
+    int data = queue[front];
+    front+=1;
+    return data;
+}
+```
