@@ -71,3 +71,27 @@ bool isfull(){
         return false
 }
 ```
+
+## isempty()
+
+```pseudo
+begin procedure isempty
+    if front is less than MIN OR front is greater than rear
+        return true
+    else
+        return false
+    endif
+end procedure
+```
+
+## C++ code for isempty()
+
+```c++
+bool isempty() {
+    if(front < 0 || front > rear)
+        return true;
+    else
+        return false;
+}
+
+```
