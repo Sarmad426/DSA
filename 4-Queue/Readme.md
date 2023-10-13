@@ -28,3 +28,21 @@ Few more functions are required to make the above-mentioned queue operation effi
 - **isfull()** − Checks if the queue is full.
 
 - **isempty**() − Checks if the queue is empty.
+
+## Peek Algo
+
+This function helps to see the data at the front of the queue.
+
+```pseudo
+begin procedure peek
+return queue[front]
+end procedure
+```
+
+### Peek implementation C++
+
+```c++
+int peek(){
+    return queue[front];
+}
+```
