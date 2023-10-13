@@ -19,7 +19,7 @@ Queue operations may involve initializing or defining the queue, utilizing it, a
 completely erasing it from the memory.
 
 - **enqueue()** add an item to the queue.
-- **dequeue** remove an item from the queue.
+- **dequeue()** remove an item from the queue.
 
 Few more functions are required to make the above-mentioned queue operation efficient.
 
