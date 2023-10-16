@@ -187,23 +187,22 @@ const int MAX_SIZE = 100; // Maximum size of the queue
 
 class Queue {
 private:
-    int front, rear, size;
+    int front, rear;
     int elements[MAX_SIZE];
 
 public:
     Queue() {
         front = rear = -1; // Initialize front and rear to -1
-        size = 0;         // Initialize the size of the queue to 0
     }
 
     // Function to check if the queue is empty
     bool isEmpty() {
-        return size == 0;
+        return front == -1;
     }
 
     // Function to check if the queue is full
     bool isFull() {
-        return size == MAX_SIZE;
+        return (rear + 1) % MAX_SIZE == front;
     }
 
     // Function to add an element to the rear of the queue (enqueue)
@@ -211,9 +210,12 @@ public:
         if (isFull()) {
             cout << "Queue is full. Cannot enqueue." << endl;
         } else {
-            rear = (rear + 1) % MAX_SIZE;
+            if (isEmpty()) {
+                front = rear = 0;
+            } else {
+                rear = (rear + 1) % MAX_SIZE;
+            }
             elements[rear] = item;
-            size++;
             cout << item << " enqueued to the queue." << endl;
         }
     }
@@ -224,8 +226,11 @@ public:
             cout << "Queue is empty. Cannot dequeue." << endl;
         } else {
             int item = elements[front];
-            front = (front + 1) % MAX_SIZE;
-            size--;
+            if (front == rear) {
+                front = rear = -1;
+            } else {
+                front = (front + 1) % MAX_SIZE;
+            }
             cout << item << " dequeued from the queue." << endl;
         }
     }
@@ -263,26 +268,110 @@ int main() {
 }
 ```
 
-Here's a step-by-step explanation of the code:
+Here's an explanation of the code:
 
-1. Include necessary headers and declare a constant `MAX_SIZE` for the maximum size of the queue.
+1. We begin by including the necessary headers and declaring a constant `MAX_SIZE` for the maximum size of the queue.
 
-2. Create a class `Queue` to encapsulate the queue operations.
+2. We define a `Queue` class to encapsulate the queue operations, which includes private data members: `front`, `rear`, and `elements`. `front` and `rear` keep track of the front and rear of the queue, and `elements` is an array to store the queue elements.
 
-3. Inside the `Queue` class, define private data members: `front`, `rear`, `size`, and `elements`. `front` and `rear` keep track of the front and rear of the queue, `size` keeps track of the number of elements in the queue, and `elements` is an array to store the queue elements.
+3. The constructor initializes `front` and `rear` to -1, indicating an empty queue.
 
-4. The constructor initializes `front` and `rear` to -1 and `size` to 0, indicating an empty queue.
+4. We implement the `isEmpty` function to check if the queue is empty by examining the value of `front`.
 
-5. Implement the `isEmpty` and `isFull` functions to check if the queue is empty or full, respectively.
+5. The `isFull` function checks if the queue is full by verifying whether the next position after `rear` would be equal to `front` in a circular manner.
 
-6. Implement the `enqueue` function to add an element to the rear of the queue. It checks if the queue is full before enqueuing.
+6. The `enqueue` function adds an element to the rear of the queue. It handles both the cases when the queue is empty or not. It also checks if the queue is full before enqueuing.
 
-7. Implement the `dequeue` function to remove an element from the front of the queue. It checks if the queue is empty before dequeuing.
+7. The `dequeue` function removes an element from the front of the queue. It also considers both cases where the queue becomes empty after dequeueing or not.
 
-8. Implement the `display` function to display the elements of the queue.
+8. The `display` function is used to display the elements of the queue.
 
-9. In the `main` function, create a `Queue` object `q`.
+9. In the `main` function, we create a `Queue` object `q`.
 
-10. Enqueue some elements, display the queue, dequeue an element, and display the updated queue to demonstrate the queue operations.
+10. We enqueue some elements, display the queue, dequeue an element, and display the updated queue to demonstrate the queue operations.
 
-Compile and run this code, and you should have a basic queue implementation without errors.
+Compile and run this code, and you'll have a functional queue implementation using a one-dimensional array without errors.
+
+## C++ Book code for Queue operations
+
+
+```c++
+#include <iostream>
+using namespace std;
+
+const int MAX = 6;
+int intArray[MAX];
+int front = 0;
+int rear = -1;
+int itemCount = 0;
+
+int peek() {
+    return intArray[front];
+}
+
+bool isEmpty() {
+    return itemCount == 0;
+}
+
+bool isFull() {
+    return itemCount == MAX;
+}
+
+int size() {
+    return itemCount;
+}
+
+void insert(int data) {
+    if (!isFull()) {
+        if (rear == MAX - 1) {
+            rear = -1;
+        }
+        intArray[++rear] = data;
+        itemCount++;
+    }
+}
+
+int removeData() {
+    int data = intArray[front++];
+    if (front == MAX) {
+        front = 0;
+    }
+    itemCount--;
+    return data;
+}
+
+int main() {
+    /* insert 5 items */
+    insert(3);
+    insert(5);
+    insert(9);
+    insert(1);
+    insert(12);
+
+    insert(15);
+
+    if (isFull()) {
+        cout << "Queue is full!" << endl;
+    }
+
+    int num = removeData();
+    cout << "Element removed: " << num << endl;
+
+    insert(16);
+
+    insert(17);
+    insert(18);
+
+    cout << "Element at front: " << peek() << endl;
+    cout << "----------------------" << endl;
+    cout << "index : 5 4 3 2 1 0" << endl;
+    cout << "----------------------" << endl;
+    cout << "Queue: ";
+    while (!isEmpty()) {
+        int n = removeData();
+        cout << n << " ";
+    }
+
+    return 0;
+}
+```
