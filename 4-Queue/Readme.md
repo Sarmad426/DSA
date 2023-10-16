@@ -176,3 +176,119 @@ int dequeue(){
     return data;
 }
 ```
+
+## implementation of a queue using a one-dimensional array in C++
+
+```cpp
+#include <iostream>
+using namespace std;
+
+#define SIZE 5
+
+class Queue {
+private:
+    int arr[SIZE];
+    int front, rear;
+
+public:
+    Queue() {
+        front = -1;
+        rear = -1;
+    }
+
+    bool isFull() {
+        if (front == 0 && rear == SIZE - 1)
+            return true;
+        if (front == rear + 1)
+            return true;
+        return false;
+    }
+
+    bool isEmpty() {
+        if (front == -1)
+            return true;
+        else
+            return false;
+    }
+
+    void enqueue(int item) {
+        if (isFull()) {
+            cout << "Queue is full. Overflow condition!" << endl;
+        } else {
+            rear = rear + 1;
+            arr[rear] = item;
+            cout << "Inserted element in queue: " << item << endl;
+        }
+    }
+
+    void dequeue() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Underflow condition!" << endl;
+        } else {
+            cout << "Deleted element from queue: " << arr[front] << endl;
+            if (front == rear) {
+                front = -1;
+                rear = -1;
+            } else {
+                front = (front + 1) % SIZE;
+            }
+        }
+    }
+
+    void display() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+        } else {
+            cout << "Elements in the queue are: ";
+            for (int i = front; i != rear; i = (i + 1) % SIZE) {
+                cout << arr[i] << " ";
+            }
+            cout << arr[rear] << endl;
+        }
+    }
+};
+
+int main() {
+    Queue q;
+    q.enqueue(10);
+    q.enqueue(20);
+    q.enqueue(30);
+    q.enqueue(40);
+    q.enqueue(50);
+    q.enqueue(60); // Queue is full. Overflow condition!
+    q.display();   // Elements in the queue are: 10 20 30 40 50
+    q.dequeue();
+    q.dequeue();
+    q.display();   // Elements in the queue are: 30 40 50
+    q.enqueue(60);
+    q.enqueue(70);
+    q.display();   // Elements in the queue are: 30 40 50 60 70
+    return 0;
+}
+```
+
+Let's go through the code step by step:
+
+1. We start by including the necessary header files, in this case, `iostream`, which allows us to use the standard input/output stream objects like `cout` and `cin`.
+
+2. We define a constant `SIZE` to specify the maximum size of the queue.
+
+3. Next, we define a class called `Queue` to encapsulate all the queue operations. The private members of this class include an array `arr` to store the elements, and two integers `front` and `rear` to keep track of the front and rear indices of the queue.
+
+4. The constructor of the `Queue` class initializes `front` and `rear` to -1, indicating an empty queue.
+
+5. The `isFull()` function checks if the queue is full by comparing the values of `front` and `rear` with the maximum size of the queue. If the queue is full, it returns `true`, otherwise `false`.
+
+6. The `isEmpty()` function checks if the queue is empty by checking if `front` is -1. If `front` is -1, it means the queue is empty, and the function returns `true`.
+
+7. The `enqueue()` function is used to insert an element into the queue. It first checks if the queue is full using the `isFull()` function. If the queue is full, it displays an overflow message. Otherwise, it updates the `rear` index and inserts the element at that position in the array.
+
+8. The `dequeue()` function is used to delete an element from the queue. It first checks if the queue is empty using the `isEmpty()` function. If the queue is empty, it displays an underflow message. Otherwise, it deletes the element at the `front` index and updates the `front` index accordingly.
+
+9. The `display()` function is used to display all the elements in the queue. It first checks if the queue is empty using the `isEmpty()` function. If the queue is empty, it displays an empty message. Otherwise, it iterates through the elements from `front` to `rear` (using modular arithmetic to handle wrap-around) and displays each element.
+
+10. In the `main()` function, we create an instance of the `Queue` class called `q`. We then enqueue some elements, dequeue some elements, and display the elements in the queue at various points.
+
+11. Finally, we return 0 to indicate successful execution of the program.
+
+I hope this explanation helps you understand the code! Let me know if you have any further questions.
