@@ -183,29 +183,27 @@ int dequeue(){
 #include <iostream>
 using namespace std;
 
-const int MAX_SIZE = 100; // Maximum size of the queue
+const int MAX_SIZE = 100; 
 
 class Queue {
 private:
     int front, rear;
     int elements[MAX_SIZE];
-
 public:
     Queue() {
-        front = rear = -1; // Initialize front and rear to -1
+        front = -1;
+        rear = -1; 
     }
-
-    // Function to check if the queue is empty
     bool isEmpty() {
         return front == -1;
     }
-
-    // Function to check if the queue is full
-    bool isFull() {
-        return (rear + 1) % MAX_SIZE == front;
-    }
-
-    // Function to add an element to the rear of the queue (enqueue)
+    bool isFull(){
+    if(rear == MAXSIZE - 1)
+        return true;
+    else
+        return false
+}
+    // Enqueue is a function that adds an element at the end (rear) of queue.
     void enqueue(int item) {
         if (isFull()) {
             cout << "Queue is full. Cannot enqueue." << endl;
