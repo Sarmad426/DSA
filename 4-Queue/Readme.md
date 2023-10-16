@@ -294,7 +294,6 @@ Compile and run this code, and you'll have a functional queue implementation usi
 
 ## C++ Book code for Queue operations
 
-
 ```c++
 #include <iostream>
 using namespace std;
