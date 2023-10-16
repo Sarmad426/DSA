@@ -177,118 +177,112 @@ int dequeue(){
 }
 ```
 
-## implementation of a queue using a one-dimensional array in C++
+## Implementation of a queue using a one-dimensional array in C++
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-#define SIZE 5
+const int MAX_SIZE = 100; // Maximum size of the queue
 
 class Queue {
 private:
-    int arr[SIZE];
-    int front, rear;
+    int front, rear, size;
+    int elements[MAX_SIZE];
 
 public:
     Queue() {
-        front = -1;
-        rear = -1;
+        front = rear = -1; // Initialize front and rear to -1
+        size = 0;         // Initialize the size of the queue to 0
     }
 
-    bool isFull() {
-        if (front == 0 && rear == SIZE - 1)
-            return true;
-        if (front == rear + 1)
-            return true;
-        return false;
-    }
-
+    // Function to check if the queue is empty
     bool isEmpty() {
-        if (front == -1)
-            return true;
-        else
-            return false;
+        return size == 0;
     }
 
+    // Function to check if the queue is full
+    bool isFull() {
+        return size == MAX_SIZE;
+    }
+
+    // Function to add an element to the rear of the queue (enqueue)
     void enqueue(int item) {
         if (isFull()) {
-            cout << "Queue is full. Overflow condition!" << endl;
+            cout << "Queue is full. Cannot enqueue." << endl;
         } else {
-            rear = rear + 1;
-            arr[rear] = item;
-            cout << "Inserted element in queue: " << item << endl;
+            rear = (rear + 1) % MAX_SIZE;
+            elements[rear] = item;
+            size++;
+            cout << item << " enqueued to the queue." << endl;
         }
     }
 
+    // Function to remove an element from the front of the queue (dequeue)
     void dequeue() {
         if (isEmpty()) {
-            cout << "Queue is empty. Underflow condition!" << endl;
+            cout << "Queue is empty. Cannot dequeue." << endl;
         } else {
-            cout << "Deleted element from queue: " << arr[front] << endl;
-            if (front == rear) {
-                front = -1;
-                rear = -1;
-            } else {
-                front = (front + 1) % SIZE;
-            }
+            int item = elements[front];
+            front = (front + 1) % MAX_SIZE;
+            size--;
+            cout << item << " dequeued from the queue." << endl;
         }
     }
 
+    // Function to display the elements of the queue
     void display() {
         if (isEmpty()) {
-            cout << "Queue is empty" << endl;
+            cout << "Queue is empty." << endl;
         } else {
-            cout << "Elements in the queue are: ";
-            for (int i = front; i != rear; i = (i + 1) % SIZE) {
-                cout << arr[i] << " ";
+            cout << "Queue elements: ";
+            int i = front;
+            while (i != rear) {
+                cout << elements[i] << " ";
+                i = (i + 1) % MAX_SIZE;
             }
-            cout << arr[rear] << endl;
+            cout << elements[rear] << endl;
         }
     }
 };
 
 int main() {
-    Queue q;
-    q.enqueue(10);
-    q.enqueue(20);
-    q.enqueue(30);
-    q.enqueue(40);
-    q.enqueue(50);
-    q.enqueue(60); // Queue is full. Overflow condition!
-    q.display();   // Elements in the queue are: 10 20 30 40 50
-    q.dequeue();
-    q.dequeue();
-    q.display();   // Elements in the queue are: 30 40 50
-    q.enqueue(60);
-    q.enqueue(70);
-    q.display();   // Elements in the queue are: 30 40 50 60 70
+    Queue q; // Create a queue object
+
+    q.enqueue(10); // Enqueue 10
+    q.enqueue(20); // Enqueue 20
+    q.enqueue(30); // Enqueue 30
+
+    q.display(); // Display queue elements
+
+    q.dequeue(); // Dequeue an element
+
+    q.display(); // Display updated queue elements
+
     return 0;
 }
 ```
 
-Let's go through the code step by step:
+Here's a step-by-step explanation of the code:
 
-1. We start by including the necessary header files, in this case, `iostream`, which allows us to use the standard input/output stream objects like `cout` and `cin`.
+1. Include necessary headers and declare a constant `MAX_SIZE` for the maximum size of the queue.
 
-2. We define a constant `SIZE` to specify the maximum size of the queue.
+2. Create a class `Queue` to encapsulate the queue operations.
 
-3. Next, we define a class called `Queue` to encapsulate all the queue operations. The private members of this class include an array `arr` to store the elements, and two integers `front` and `rear` to keep track of the front and rear indices of the queue.
+3. Inside the `Queue` class, define private data members: `front`, `rear`, `size`, and `elements`. `front` and `rear` keep track of the front and rear of the queue, `size` keeps track of the number of elements in the queue, and `elements` is an array to store the queue elements.
 
-4. The constructor of the `Queue` class initializes `front` and `rear` to -1, indicating an empty queue.
+4. The constructor initializes `front` and `rear` to -1 and `size` to 0, indicating an empty queue.
 
-5. The `isFull()` function checks if the queue is full by comparing the values of `front` and `rear` with the maximum size of the queue. If the queue is full, it returns `true`, otherwise `false`.
+5. Implement the `isEmpty` and `isFull` functions to check if the queue is empty or full, respectively.
 
-6. The `isEmpty()` function checks if the queue is empty by checking if `front` is -1. If `front` is -1, it means the queue is empty, and the function returns `true`.
+6. Implement the `enqueue` function to add an element to the rear of the queue. It checks if the queue is full before enqueuing.
 
-7. The `enqueue()` function is used to insert an element into the queue. It first checks if the queue is full using the `isFull()` function. If the queue is full, it displays an overflow message. Otherwise, it updates the `rear` index and inserts the element at that position in the array.
+7. Implement the `dequeue` function to remove an element from the front of the queue. It checks if the queue is empty before dequeuing.
 
-8. The `dequeue()` function is used to delete an element from the queue. It first checks if the queue is empty using the `isEmpty()` function. If the queue is empty, it displays an underflow message. Otherwise, it deletes the element at the `front` index and updates the `front` index accordingly.
+8. Implement the `display` function to display the elements of the queue.
 
-9. The `display()` function is used to display all the elements in the queue. It first checks if the queue is empty using the `isEmpty()` function. If the queue is empty, it displays an empty message. Otherwise, it iterates through the elements from `front` to `rear` (using modular arithmetic to handle wrap-around) and displays each element.
+9. In the `main` function, create a `Queue` object `q`.
 
-10. In the `main()` function, we create an instance of the `Queue` class called `q`. We then enqueue some elements, dequeue some elements, and display the elements in the queue at various points.
+10. Enqueue some elements, display the queue, dequeue an element, and display the updated queue to demonstrate the queue operations.
 
-11. Finally, we return 0 to indicate successful execution of the program.
-
-I hope this explanation helps you understand the code! Let me know if you have any further questions.
+Compile and run this code, and you should have a basic queue implementation without errors.
