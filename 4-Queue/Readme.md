@@ -180,89 +180,73 @@ int dequeue(){
 ## Implementation of a queue using a one-dimensional array in C++
 
 ```cpp
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-const int MAX_SIZE = 100; 
+#define max_size 5
 
-class Queue {
-private:
-    int front, rear;
-    int elements[MAX_SIZE];
-public:
-    Queue() {
-        front = -1;
-        rear = -1; 
+class Queue{
+    private:
+        int queue[max_size];
+        int front;
+        int rear;
+    public:
+    Queue(){
+    front = -1;
+    rear = -1;
     }
-    bool isEmpty() {
-        return front == -1;
-    }
-    bool isFull(){
-    if(rear == MAXSIZE - 1)
+    bool full(){
+    if(rear == max_size-1){
+        cout<<"Queue is Full: "<<endl;
         return true;
-    else
-        return false
-}
-    // Enqueue is a function that adds an element at the end (rear) of queue.
-    void enqueue(int item) {
-        if (isFull()) {
-            cout << "Queue is full. Cannot enqueue." << endl;
-        } else {
-            if (isEmpty()) {
-                front = rear = 0;
-            } else {
-                rear = (rear + 1) % MAX_SIZE;
-            }
-            elements[rear] = item;
-            cout << item << " enqueued to the queue." << endl;
-        }
     }
-
-    // Function to remove an element from the front of the queue (dequeue)
-    void dequeue() {
-        if (isEmpty()) {
-            cout << "Queue is empty. Cannot dequeue." << endl;
-        } else {
-            int item = elements[front];
-            if (front == rear) {
-                front = rear = -1;
-            } else {
-                front = (front + 1) % MAX_SIZE;
-            }
-            cout << item << " dequeued from the queue." << endl;
-        }
+    return false;
     }
-
-    // Function to display the elements of the queue
-    void display() {
-        if (isEmpty()) {
-            cout << "Queue is empty." << endl;
-        } else {
-            cout << "Queue elements: ";
-            int i = front;
-            while (i != rear) {
-                cout << elements[i] << " ";
-                i = (i + 1) % MAX_SIZE;
-            }
-            cout << elements[rear] << endl;
-        }
+    bool empty(){
+    if(front>rear || front ==-1){
+        cout<<"Queue is Empty: "<<endl;
+        return true;
+    }
+    return false;
+    }
+    int enqueue(int value){
+    if(full()){
+        cout<<"Queue Overflow: "<<endl;
+        return 0;
+    }
+    rear+=1;
+    queue[rear] = value;
+    if(front==-1){
+        front+=1;
+    }
+  }
+    int peek(){
+    if(empty()){
+        cout<<"Queue Underflow: "<<endl;
+        return 0;
+    }
+    return queue[front];
+    }
+    void dequeue(){
+    if(empty()){
+        cout<<"Queue Underflow: "<<endl;
+        return;
+    }
+    front++;
     }
 };
 
-int main() {
-    Queue q; // Create a queue object
-
-    q.enqueue(10); // Enqueue 10
-    q.enqueue(20); // Enqueue 20
-    q.enqueue(30); // Enqueue 30
-
-    q.display(); // Display queue elements
-
-    q.dequeue(); // Dequeue an element
-
-    q.display(); // Display updated queue elements
-
-    return 0;
+int main(){
+    Queue queue;
+    queue.empty();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    queue.enqueue(4);
+    queue.enqueue(5);
+    queue.full();
+    cout<<queue.peek();
+    queue.dequeue();
 }
 ```
 
