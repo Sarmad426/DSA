@@ -185,67 +185,68 @@ memory space.
 Here's a basic implementation of a stack in C++ using an array:
 
 ```cpp
-#include <iostream>
+#include<iostream>
 using namespace std;
-class Stack {
-private:
-    static const int MAX_SIZE = 100;
-    int arr[MAX_SIZE];
-    int top;
 
-public:
-    Stack() {
-        top = -1;
-    }
+#define max 5
 
-    bool isEmpty() {
-        return top == -1;
-    }
-
-    bool isFull() {
-        return top == MAX_SIZE - 1;
-    }
-
-    void push(int data) {
-        if (isFull()) {
-            cout << "Stack overflow: Cannot push " << data << endl;
-            return;
-        }
-        arr[++top] = data;
-        cout << data << " pushed into the stack." << endl;
-    }
-
-    void pop() {
-        if (isEmpty()) {
-            cout << "Stack is empty. Cannot pop." << endl;
-            return;
-        }
-        cout << arr[top] << " popped from the stack: "<<endl;
-        top--;
-    }
-
-    int peek() {
-        if (isEmpty()) {
-            cerr << "Stack is empty. Cannot peek." <<endl;
-            return -1; // Return a sentinel value or handle the error as needed
-        }
-        return arr[top];
-    }
+class Stack{
+ int stack[max];
+ int top;
+ public:
+  Stack(){
+   top =-1;
+  }
+  bool full(){
+   return top == max-1;
+  }
+  bool empty(){
+   return top==-1;
+  }
+  int Top(){
+   if(empty()){
+    cout<<"Stack is Empty: "<<endl;
+    return -1;
+   }
+   return stack[top];
+  }
+  void push(int value){
+   if(full()){
+    cout<<"Stack is Full: "<<endl;
+    return;
+   }
+   top+=1;
+   stack[top] = value;
+  }
+  void pop(){
+   if(empty()){
+    cout<<"Stack is Empty: "<<endl;
+    return;
+   }
+   top-=1;
+  }
+  void run(){
+   for(int i=0;i<top;i++){
+    cout<<stack[i]<<", ";
+   }
+  }
 };
 
-int main() {
-    Stack stack;
-
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
-
-    cout << "Top element: " << stack.peek() <<endl;
-
-    stack.pop();
-    stack.pop();
-
-    cout << "Top element: " << stack.peek() <<endl;
+int main(){
+ Stack stack;
+ stack.push(1);
+ stack.push(2);
+ stack.push(3);
+ stack.push(4);
+ stack.push(5);
+ cout<<stack.Top()<<endl;
+ stack.pop();
+ cout<<stack.Top()<<endl;
+ stack.pop();
+ cout<<stack.Top()<<endl;
+ stack.pop();
+ cout<<stack.Top()<<endl;
+ stack.pop();
 }
 ```
 
