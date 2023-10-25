@@ -41,7 +41,7 @@ This is a classic example of recursion, where we calculate the factorial of a nu
 
 ```cpp
 #include <iostream>
-
+using namespace std;
 int factorial(int n) {
     if (n <= 1) {
         return 1;
@@ -53,8 +53,7 @@ int factorial(int n) {
 int main() {
     int num = 5;
     int result = factorial(num);
-    std::cout << "Factorial of " << num << " is " << result << std::endl;
-    return 0;
+    cout << "Factorial of " << num << " is " << result <<endl;
 }
 ```
 
