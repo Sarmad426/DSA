@@ -1,5 +1,8 @@
+# Search
 
-# Linear Search
+Search is the process of searching an element in an array.
+
+## Linear Search
 
 Linear search, also known as sequential search, is a simple searching algorithm that searches for a specific element in a list by checking each element in the list, one by one, until the desired element is found or the end of the list is reached. Linear search is not the most efficient search algorithm, especially for large datasets, but it is straightforward and works for unsorted or sorted lists.
 
