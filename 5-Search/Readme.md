@@ -6,7 +6,21 @@ Search is the process of searching an element in an array.
 
 Linear search, also known as sequential search, is a simple searching algorithm that searches for a specific element in a list by checking each element in the list, one by one, until the desired element is found or the end of the list is reached. Linear search is not the most efficient search algorithm, especially for large datasets, but it is straightforward and works for unsorted or sorted lists.
 
-Here is the C++ code for linear search:
+### Linear Search Algorithm
+
+```pseudo
+Linear Search ( Array A, Value x)
+Step 1: Set i to 1
+Step 2: if i > n then go to step 7
+Step 3: if A[i] = x then go to step 6
+Step 4: Set i to i + 1
+Step 5: Go to Step 2
+Step 6: Print Element x Found at index i and go to step 8
+Step 7: Print element not found
+Step 8: Exit
+```
+
+### Linear Search C++ implementation
 
 ```cpp
 #include <iostream>
