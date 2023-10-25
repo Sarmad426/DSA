@@ -63,7 +63,7 @@ In this example, we use recursion to find the nth Fibonacci number, which is a m
 
 ```cpp
 #include <iostream>
-
+using namespace std;
 int fibonacci(int n) {
     if (n <= 1) {
         return n;
@@ -75,8 +75,7 @@ int fibonacci(int n) {
 int main() {
     int num = 6;
     int result = fibonacci(num);
-    std::cout << "Fibonacci number at position " << num << " is " << result << std::endl;
-    return 0;
+    cout << "Fibonacci number at position " << num << " is " << result <<endl;
 }
 ```
 
@@ -87,7 +86,7 @@ This example demonstrates a common interview question involving binary search us
 ```cpp
 #include <iostream>
 #include <vector>
-
+using namespace std;
 int binarySearchRecursive(std::vector<int> arr, int target, int low, int high) {
     if (low > high) {
         return -1; // Element not found
@@ -105,18 +104,17 @@ int binarySearchRecursive(std::vector<int> arr, int target, int low, int high) {
 }
 
 int main() {
-    std::vector<int> arr = {2, 4, 6, 8, 10, 12, 14};
+    vector<int> arr = {2, 4, 6, 8, 10, 12, 14};
     int target = 8;
     int result = binarySearchRecursive(arr, target, 0, arr.size() - 1);
 
     if (result != -1) {
-        std::cout << "Element found at index " << result << std::endl;
+        cout << "Element found at index " << result <<endl;
     } else {
-        std::cout << "Element not found in the array." << std::endl;
+        cout << "Element not found in the array." << endl;
     }
-
-    return 0;
 }
+
 ```
 
 In the third example, we implement a recursive binary search, which is a common problem in technical interviews. This code snippet demonstrates how to search for an element in a sorted array using recursion.
