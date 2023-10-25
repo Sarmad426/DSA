@@ -50,7 +50,7 @@ int main() {
 
 Now, let's break down how linear search works:
 
-**Algorithm for Linear Search:**
+### Algorithm for Linear Search in Plain English
 
 1. Start from the first element in the list.
 2. Compare the current element with the target element you are searching for.
