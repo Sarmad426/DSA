@@ -43,6 +43,6 @@ Now, let's break down how linear search works:
 5. Continue this process until you either find the target element or reach the end of the list.
 6. If you reach the end of the list without finding the target element, return -1 to indicate that the element is not in the list.
 
-In the code provided, the `linearSearch` function implements this algorithm. It takes an array `arr`, the number of elements `n`, and the `target` element to search for. It returns the index of the `target` element if found, or -1 if it's not in the array.
+In the code provided, the `linear_search` function implements this algorithm. It takes an array `arr`, the number of elements `n`, and the `target` element to search for. It returns the index of the `target` element if found, or -1 if it's not in the array.
 
-In the `main` function, an example array is defined, and a target element is specified. The `linearSearch` function is then called to search for the target element in the array, and the result is printed to the console.
+In the `main` function, an example array is defined, and a target element is specified. The `linear_search` function is then called to search for the target element in the array, and the result is printed to the console.
