@@ -15,14 +15,3 @@ int function(int value) {
  cout<<value; 
 }
 ```
-
-### A function that calls another function which in turn calls it again
-
-```cpp
-int function(int value) {
- if(value < 1)
- return;
- function(value - 1);
- cout<<value;
-}
-```
