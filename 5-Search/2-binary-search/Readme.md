@@ -16,6 +16,34 @@ Here's the algorithm for binary search:
    - If the middle element is less than the target, update the `left` pointer to `mid + 1` and go to step 2.
 4. Repeat steps 2-3 until `left` is greater than `right`, which indicates that the target is not in the array.
 
+## Binary Search Psuedo-Code
+
+```pseudo
+Procedure binary_search
+ A ← sorted array
+ n ← size of array
+ x ← value ot be searched
+ Set lowerBound = 1
+ Set upperBound = n 
+ while x not found
+ 
+ if upperBound < lowerBound 
+ EXIT: x does not exists.
+ 
+ set midPoint = lowerBound + ( upperBound - lowerBound ) / 2
+ 
+ if A[midPoint] < x
+ set lowerBound = midPoint + 1
+ 
+ if A[midPoint] > x
+ set upperBound = midPoint - 1 
+ if A[midPoint] = x 
+ EXIT: x found at location midPoint
+ end while
+ 
+end procedure
+```
+
 Here is the C++ code for binary search.
 
 ```cpp
