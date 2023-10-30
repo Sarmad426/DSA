@@ -2,6 +2,10 @@
 
 Binary search is a popular search algorithm used to efficiently locate a target element within a sorted array or list. It works by repeatedly dividing the search interval in half and comparing the middle element to the target value. This process continues until the target element is found or the search interval becomes empty, indicating that the element is not in the list.
 
+> Binary search is a fast search algorithm with run-time complexity of Ο(log n). This search
+algorithm works on the principle of divide and conquer. For this algorithm to work properly,
+the data collection should be in the **Sorted** form.
+
 Here's the algorithm for binary search:
 
 1. Initialize two pointers, `left` and `right`, to the first and last elements of the array, respectively.
