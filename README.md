@@ -40,17 +40,3 @@ Each sorting algorithm is explained, implemented in C++, and accompanied by clea
 - **Interview Preparation**: Use the interview questions section to practice and improve your problem-solving skills. Understand the logic behind each solution and try to solve them independently first.
 
 - **Contributions**: We encourage contributions from the open-source community. Feel free to contribute your implementations, improvements, or additional topics to enhance the repository's value.
-
-## Contributing
-
-Contributions to this repository are highly appreciated. If you have code examples, optimizations, additional topics, or corrections to share, please follow our contribution guidelines to make this resource even better.
-
-## Acknowledgments
-
-We would like to express our gratitude to the open-source community for their continuous support and contributions to this project.
-
-## License
-
-This repository is open-source and available under the [MIT License](LICENSE.md). You are free to use, modify, and distribute the code and content for educational and non-commercial purposes.
-
-Happy coding and learning!
