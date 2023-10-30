@@ -54,4 +54,3 @@ We would like to express our gratitude to the open-source community for their co
 This repository is open-source and available under the [MIT License](LICENSE.md). You are free to use, modify, and distribute the code and content for educational and non-commercial purposes.
 
 Happy coding and learning!
-
