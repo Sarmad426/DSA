@@ -6,23 +6,24 @@ int binarySearch(int arr[], int size, int target) {
     int right = size - 1;
 
     while (left <= right) {
-        int mid = left + (right - left) / 2; // To avoid integer overflow
+
+        int mid = left + (right - left) / 2; 
 
         if (arr[mid] == target) {
-            return mid; // Target found, return its index
+            return mid; 
         } else if (arr[mid] < target) {
-            left = mid + 1; // Adjust the left pointer
+            left = mid + 1; 
         } else {
-            right = mid - 1; // Adjust the right pointer
+            right = mid - 1; 
         }
     }
 
-    return -1; // Target not found
+    return -1; 
 }
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int size = sizeof(arr) / sizeof(arr[0]); // Calculate the size of the array
+    int arr[5] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]); 
     int target;
 
     cout << "Enter the number you want to search for: ";
