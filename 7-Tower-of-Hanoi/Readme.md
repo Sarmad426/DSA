@@ -112,4 +112,132 @@ int main() {
 }
 ```
 
-These interview questions test your understanding of the Tower of Hanoi problem and your ability to work with recursive algorithms. The first question asks you to print the steps involved, and the second question requires you to calculate the minimum number of moves.
+## Tower of Hanoi Algorithm
+
+```c++
+tower_of_hanoi(n, source, auxiliary, target):
+    if n > 0:
+        tower_of_hanoi(n-1, source, target, auxiliary)
+        move_disk(source, target)
+        tower_of_hanoi(n-1, auxiliary, source, target)
+```
+
+## C++ Code
+
+```cpp
+#include <iostream>
+
+void move_disk(char source, char target) {
+    std::cout << "Move disk from rod " << source << " to rod " << target << std::endl;
+}
+
+void tower_of_hanoi(int n, char source, char auxiliary, char target) {
+    if (n > 0) {
+        tower_of_hanoi(n-1, source, target, auxiliary);
+        move_disk(source, target);
+        tower_of_hanoi(n-1, auxiliary, source, target);
+    }
+}
+
+int main() {
+    int n;
+    std::cout << "Enter the number of disks: ";
+    std::cin >> n;
+
+    tower_of_hanoi(n, 'A', 'B', 'C');
+
+    return 0;
+}
+```
+
+## Multiple Choice Questions
+
+1. **What is the Tower of Hanoi?**
+   - [ ] A card game
+   - [x] A mathematical puzzle
+   - [ ] A computer programming language
+   - [ ] A type of building structure
+
+2. **Who invented the Tower of Hanoi?**
+   - [ ] Alan Turing
+   - [ ] Isaac Newton
+   - [x] Edouard Lucas
+   - [ ] Leonardo da Vinci
+
+3. **How many rods are involved in the Tower of Hanoi problem?**
+   - [ ] One
+   - [x] Three
+   - [ ] Four
+   - [ ] Five
+
+4. **What is the main objective of the Tower of Hanoi puzzle?**
+   - [ ] Sorting numbers
+   - [x] Moving a stack of disks to another rod
+   - [ ] Solving mathematical equations
+   - [ ] Drawing a conical shape
+
+5. **How many rules govern the movement of disks in the Tower of Hanoi?**
+   - [ ] One
+   - [x] Two
+   - [ ] Three
+   - [ ] Four
+
+6. **What is the recursive algorithm used to solve the Tower of Hanoi problem?**
+   - [ ] Bubble Sort
+   - [x] Divide and Conquer
+   - [ ] Linear Search
+   - [ ] Quick Sort
+
+7. **What does the Tower of Hanoi algorithm do with n-1 disks?**
+   - [ ] Moves them to the target rod
+   - [x] Moves them to an auxiliary rod
+   - [ ] Discards them
+   - [ ] Keeps them on the source rod
+
+8. **How are the disks initially arranged on the source rod?**
+   - [ ] Descending order
+   - [x] Ascending order
+   - [ ] Random order
+   - [ ] Alphabetical order
+
+9. **In which year was the Tower of Hanoi invented?**
+   - [ ] 1776
+   - [x] 1883
+   - [ ] 1950
+   - [ ] 2000
+
+10. **How many steps does it take to solve the Tower of Hanoi problem with n disks?**
+    - [ ] n
+    - [ ] 2n
+    - [x] 2^n - 1
+    - [ ] n^2
+
+11. **Which of the following is NOT a rule in the Tower of Hanoi problem?**
+    - [ ] Moving one disk at a time
+    - [ ] Placing a disk on an empty rod
+    - [x] Placing a larger disk on top of a smaller disk
+    - [ ] Moving the smallest disk first
+
+12. **What is the minimum number of moves required to solve the Tower of Hanoi with 4 disks?**
+    - [ ] 4
+    - [ ] 8
+    - [x] 15
+    - [ ] 16
+
+13. **In the Tower of Hanoi, if there are 5 disks, how many recursive calls will be made?**
+    - [ ] 5
+    - [ ] 10
+    - [ ] 15
+    - [x] 31
+
+14. **What is the time complexity of the Tower of Hanoi algorithm?**
+    - [ ] O(n)
+    - [ ] O(log n)
+    - [x] O(2^n)
+    - [ ] O(n^2)
+
+15. **If there are 3 disks in the Tower of Hanoi, how many moves are required to solve the problem?**
+    - [ ] 3
+    - [x] 7
+    - [ ] 9
+    - [ ] 12

@@ -117,4 +117,93 @@ int main() {
 
 ```
 
-In the third example, we implement a recursive binary search, which is a common problem in technical interviews. This code snippet demonstrates how to search for an element in a sorted array using recursion.
+## MCQ Questions
+
+1. **What is the Fibonacci sequence?**
+   - [ ] A sequence of prime numbers
+   - [ ] A sequence of odd numbers
+   - [x] A series of numbers where each number is the sum of the two preceding ones, starting from 0 and 1.
+
+2. **In the Fibonacci sequence, what are the first two numbers?**
+   - [ ] 1 and 2
+   - [ ] 0 and 2
+   - [x] 0 and 1
+   - [ ] 1 and 3
+
+3. **What is the recursive formula for the Fibonacci sequence?**
+   - [ ] \(F(n) = F(n-1) + F(n-2)\)
+   - [ ] \(F(n) = F(n-1) * F(n-2)\)
+   - [x] \(F(n) = F(n-1) + F(n-2), F(0) = 0, F(1) = 1\)
+   - [ ] \(F(n) = n * F(n-1)\)
+
+4. **What is the time complexity of the naive recursive approach for computing Fibonacci numbers?**
+   - [ ] O(n)
+   - [ ] O(log n)
+   - [x] O(2^n)
+   - [ ] O(n^2)
+
+5. **What is memoization in the context of Fibonacci recursion?**
+   - [ ] Reversing the sequence
+   - [x] Caching previously computed results to avoid redundant calculations
+   - [ ] Changing the base case
+   - [ ] Computing Fibonacci numbers in reverse order
+
+6. **Which programming language is commonly used for implementing Fibonacci recursion?**
+   - [ ] Java
+   - [ ] Python
+   - [ ] C#
+   - [x] All of the above
+
+7. **What is the purpose of dynamic programming in optimizing Fibonacci recursion?**
+   - [ ] Adding dynamic features to the sequence
+   - [ ] Changing the base case
+   - [x] Avoiding redundant calculations by storing and reusing intermediate results
+   - [ ] Introducing randomness to the sequence
+
+8. **In the Fibonacci sequence, what is \(F(5)\)?**
+   - [ ] 3
+   - [x] 5
+   - [ ] 8
+   - [ ] 13
+
+9. **Which of the following statements about the Fibonacci sequence is true?**
+   - [ ] The sequence starts with 2 and 3.
+   - [x] The sequence is infinite.
+   - [ ] The ratio of consecutive Fibonacci numbers converges to 2.
+   - [ ] The sequence is always strictly increasing.
+
+10. **What is the iterative approach to calculating Fibonacci numbers?**
+    - [ ] Using nested loops
+    - [ ] Recursive function calls
+    - [x] Using a loop to update values iteratively
+    - [ ] Randomly generating numbers
+
+11. **What is the golden ratio, often approximated using Fibonacci numbers?**
+    - [ ] 1.5
+    - [x] \( \phi \) (phi), approximately 1.618
+    - [ ] 2.0
+    - [ ] 3.14
+
+12. **Which technique is used to overcome the exponential time complexity in recursive Fibonacci?**
+    - [ ] Binary search
+    - [x] Dynamic programming
+    - [ ] Bubble sort
+    - [ ] Linked lists
+
+13. **What is the value of \(F(0)\) in the Fibonacci sequence?**
+    - [ ] 1
+    - [x] 0
+    - [ ] 2
+    - [ ] -1
+
+14. **What is the base case in the recursive definition of the Fibonacci sequence?**
+    - [ ] \(F(n) = 0\)
+    - [x] \(F(0) = 0, F(1) = 1\)
+    - [ ] \(F(n) = 1\)
+    - [ ] \(F(2) = 2\)
+
+15. **What is the space complexity of the memoized Fibonacci algorithm?**
+    - [ ] O(n)
+    - [ ] O(log n)
+    - [x] O(n)
+    - [ ] O(1)
