@@ -24,6 +24,48 @@ Bubble Sort is a simple sorting algorithm that repeatedly steps through the list
 
 ```cpp
 #include <iostream>
+
+void bubbleSort(int arr[], int size) {
+    bool swapped = true;
+    
+    while (swapped) {
+        swapped = false;
+        
+        for (int i = 0; i < size - 1; ++i) {
+            if (arr[i] > arr[i + 1]) {
+                // Swap the elements
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                
+                swapped = true;
+            }
+        }
+    }
+}
+
+int main() {
+    int data[] = {64, 34, 25, 12, 22, 11, 90};
+    int size = sizeof(data) / sizeof(data[0]);
+    
+    std::cout << "Original array: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << data[i] << " ";
+    }
+    
+    bubbleSort(data, size);
+    
+    std::cout << "\nSorted array: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << data[i] << " ";
+    }
+}
+```
+
+## C++ Implementation using `vector` library
+
+```cpp
+#include <iostream>
 #include <vector>
 
 void bubbleSort(std::vector<int>& arr) {
@@ -53,8 +95,6 @@ int main() {
     for (int num : data) {
         std::cout << num << " ";
     }
-    
-    return 0;
 }
 ```
 
