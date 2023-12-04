@@ -24,6 +24,7 @@ Bubble Sort is a simple sorting algorithm that repeatedly steps through the list
 
 ```cpp
 #include <iostream>
+using namespace std;
 
 void bubbleSort(int arr[], int size) {
     bool swapped = true;
@@ -45,19 +46,19 @@ void bubbleSort(int arr[], int size) {
 }
 
 int main() {
-    int data[] = {64, 34, 25, 12, 22, 11, 90};
+    int data[] = {14,33,27,35,10};
     int size = sizeof(data) / sizeof(data[0]);
     
-    std::cout << "Original array: ";
+    cout << "Original array: ";
     for (int i = 0; i < size; ++i) {
-        std::cout << data[i] << " ";
+        cout << data[i] << " ";
     }
     
     bubbleSort(data, size);
     
-    std::cout << "\nSorted array: ";
+    cout << "\nSorted array: ";
     for (int i = 0; i < size; ++i) {
-        std::cout << data[i] << " ";
+        cout << data[i] << " ";
     }
 }
 ```
