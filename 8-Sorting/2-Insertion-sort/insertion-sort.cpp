@@ -14,7 +14,6 @@ public:
     }
 
     ~Insertion_Sort() {
-        // Deallocate memory when the object is destroyed
         delete[] arr;
     }
 
@@ -54,6 +53,4 @@ int main() {
     array.input_array();
     array.sort();
     array.display_array();
-
-    return 0;
 }
