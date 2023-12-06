@@ -23,44 +23,69 @@ Bubble Sort is a simple sorting algorithm that repeatedly steps through the list
 ## C++ Implementation
 
 ```cpp
-#include <iostream>
+#include<iostream>
 using namespace std;
 
-void bubbleSort(int arr[], int size) {
-    bool swapped = true;
-    
-    while (swapped) {
-        swapped = false;
-        
-        for (int i = 0; i < size - 1; ++i) {
-            if (arr[i] > arr[i + 1]) {
-                // Swap the elements
-                int temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                
-                swapped = true;
+class Bubble_Sort {
+    int size;
+    int *arr; 
+public:
+    Bubble_Sort() {
+        cout << "Input array Size: " << endl;
+        cin >> size;
+
+        // Dynamically allocate memory for the array
+        arr = new int[size];
+    }
+
+    ~Bubble_Sort() {
+        // Deallocate memory when the object is destroyed
+        delete[] arr;
+    }
+
+    void input_array() {
+        cout << "Input " << size << " values in array: " << endl;
+        for (int i = 0; i < size; i++) {
+            cin >> arr[i];
+            cout << endl;
+        }
+    }
+
+    void display_array() {
+        for (int i = 0; i < size; i++) {
+            cout << arr[i] << ", ";
+        }
+    }
+
+    void swap(int &num1, int &num2) {
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+    }
+
+    void sort() {
+        bool swapped = true;
+
+        while (swapped) {
+            swapped = false;
+            for (int i = 0; i < size - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr[i], arr[i + 1]);
+                    swapped = true;
+                }
             }
         }
     }
-}
+};
 
 int main() {
-    int data[] = {14,33,27,35,10};
-    int size = sizeof(data) / sizeof(data[0]);
-    
-    cout << "Original array: ";
-    for (int i = 0; i < size; ++i) {
-        cout << data[i] << " ";
-    }
-    
-    bubbleSort(data, size);
-    
-    cout << "\nSorted array: ";
-    for (int i = 0; i < size; ++i) {
-        cout << data[i] << " ";
-    }
+    Bubble_Sort array;
+    array.input_array();
+    array.sort();
+    array.display_array();
 }
+
+
 ```
 
 ## C++ Implementation using `vector` library
@@ -128,7 +153,8 @@ int main() {
 
 ## Quiz
 
-### Question 1:
+### Question 1
+
 What is the main idea behind the Bubble Sort algorithm?
 
 a) Divide and conquer  
@@ -136,9 +162,11 @@ b) Greedy approach
 c) Repeatedly compare and swap adjacent elements  
 d) Hashing
 
-**Answer: c) Repeatedly compare and swap adjacent elements**
+**Answer:**
+> c) Repeatedly compare and swap adjacent elements**
 
-### Question 2:
+### Question 2
+
 What is the time complexity of Bubble Sort in the worst case?
 
 a) O(n)  
@@ -146,9 +174,11 @@ b) O(n log n)
 c) O(n^2)  
 d) O(log n)
 
-**Answer: c) O(n^2)**
+**Answer:**
+> c) O(n^2)
 
-### Question 3:
+### Question 3
+
 When does the Bubble Sort algorithm terminate?
 
 a) When the list is empty  
@@ -156,4 +186,5 @@ b) When the list is partially sorted
 c) When no swaps are made in a pass  
 d) When all elements are compared once
 
-**Answer: c) When no swaps are made in a pass**
+**Answer:**
+> When no swaps are made in a pass
