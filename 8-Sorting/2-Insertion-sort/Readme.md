@@ -1,58 +1,80 @@
 # Insertion Sort
 
-Insertion sort is a simple and efficient sorting algorithm that works by comparing and inserting elements into a sorted sub-list. In this document, I will explain how insertion sort works, its algorithm, and its advantages and disadvantages.
+## Introduction
 
-## How Insertion Sort Works³[3]
+Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, it provides several advantages, such as simplicity and ease of implementation, making it suitable for small datasets or partially sorted arrays.
 
-Insertion sort works by dividing the input array into two parts: a sorted sub-list and an unsorted sub-list⁴[4]. Initially, the sorted sub-list contains only the first element of the input array, and the unsorted sub-list contains the rest of the elements.
+## Working of Insertion Sort
 
-The algorithm then iterates over the unsorted sub-list, and for each element, it finds its correct position in the sorted sub-list and inserts it there. This process is repeated until the unsorted sub-list is empty and the sorted sub-list contains all the elements of the input array⁵[5].
+The Insertion Sort algorithm works by dividing the input array into a sorted and an unsorted region. Initially, the sorted region consists of only the first element, and the unsorted region contains the remaining elements. The algorithm iterates through the unsorted region, taking one element at a time and placing it in its correct position within the sorted region. This process is repeated until the entire array is sorted.
 
-The following animation shows how insertion sort works on an example array of eight elements.
+## Suitability
 
-![Insertion Sort Animation]
+Insertion Sort is well-suited for small datasets or partially sorted arrays. Its simplicity makes it easy to understand and implement. However, its time complexity of O(n^2) makes it inefficient for large datasets compared to more advanced sorting algorithms.
 
-## Insertion Sort Algorithm
+## Algorithm
 
-The algorithm for insertion sort can be written as follows:
+The Insertion Sort algorithm can be described with the following steps:
 
-- Step 1: If the input array has only one element, it is already sorted⁶[6]⁷[7]. Return the array.
-- Step 2: Pick the second element of the input array and compare it with the first element. If it is smaller, swap them⁸[8]. Otherwise, leave them as they are. The first two elements are now sorted⁹[9].
-- Step 3: Pick the third element of the input array and compare it with the second element. If it is smaller, swap them⁸[8]. Then compare it with the first element. If it is smaller, swap them⁸[8]. Otherwise, leave them as they are. The first three elements are now sorted⁹[9].
-- Step 4: Repeat step 3 for the remaining elements of the input array, until all the elements are sorted.
+1. Start with the second element (assuming the first element is already sorted).
+2. Compare the current element with the elements in the sorted region.
+3. Move elements greater than the current element to the right.
+4. Insert the current element in its correct position within the sorted region.
+5. Repeat steps 2-4 until all elements are sorted.
 
-The following pseudo-code shows the implementation of insertion sort in a generic programming language.
+## C++ Implementation
 
-```pseudo
-procedure insertionSort(A : array of items)¹¹[11]
-   n : size of A
-   for i = 1 to n - 1 do:¹²[12]
-      // select the value to be inserted¹³[13]
-      valueToInsert = A[i]¹⁴[14]¹⁵[15]
-      holePosition = i¹[1]¹⁶[16]
-      // locate the hole position for the element to be inserted¹⁷[17]
-      while holePosition > 0 and A[holePosition - 1] > valueToInsert do:¹⁸[18]
-         // shift the element
-         A[holePosition] = A[holePosition - 1]²[2]
-         holePosition = holePosition - 1²[2]¹[1]
-      end while
-      // insert the value at the hole position²¹[21]
-      A[holePosition] = valueToInsert²²[22]
-   end for
-end procedure
+```cpp
+#include <iostream>
+#include <vector>
+
+void insertionSort(std::vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 1; i < n; ++i) {
+        int key = arr[i];
+        int j = i - 1;
+
+        // Move elements greater than key to the right
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        // Insert the key in its correct position
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+    // Example usage
+    std::vector<int> exampleArray = {12, 11, 13, 5, 6};
+    
+    std::cout << "Original Array: ";
+    for (int num : exampleArray) {
+        std::cout << num << " ";
+    }
+
+    insertionSort(exampleArray);
+
+    std::cout << "\nSorted Array: ";
+    for (int num : exampleArray) {
+        std::cout << num << " ";
+    }
+
+    return 0;
+}
 ```
 
-## Advantages and Disadvantages of Insertion Sort
+## Example
 
-Some of the advantages of insertion sort are:
+Consider the following example using the array `{12, 11, 13, 5, 6}`:
 
-- It is simple and easy to implement.
-- It is efficient for small data sets or data sets that are already partially sorted.
-- It is stable, meaning that it preserves the relative order of equal elements.
-- It is adaptive, meaning that it reduces the number of comparisons and shifts if the input array is already sorted or nearly sorted²³[23].
-- It is in-place, meaning that it does not require extra space for sorting²⁴[24].
+1. Initial state: `[12] [11, 13, 5, 6]`
+2. After the first iteration: `[11, 12] [13, 5, 6]`
+3. After the second iteration: `[11, 12, 13] [5, 6]`
+4. After the third iteration: `[5, 11, 12, 13] [6]`
+5. After the fourth iteration: `[5, 6, 11, 12, 13]`
 
-Some of the disadvantages of insertion sort are:
+The sorted array is `[5, 6, 11, 12, 13]`.
 
-- It is not efficient for large data sets, as its average and worst case time complexity are O(n^2), where n is the number of elements in the input array²⁵[25]²⁶[26].
-- It is not suitable for data sets that are randomly ordered or in reverse order, as it will perform the maximum number of comparisons and shifts.
+This example illustrates the step-by-step process of the Insertion Sort algorithm.
