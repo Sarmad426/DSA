@@ -77,4 +77,37 @@ Consider the following example using the array `{12, 11, 13, 5, 6}`:
 
 The sorted array is `[5, 6, 11, 12, 13]`.
 
-This example illustrates the step-by-step process of the Insertion Sort algorithm.
+## Interview Questions
+
+## 1. What is Insertion Sort, and how does it work?
+
+**Answer:**
+Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. It works by dividing the input array into a sorted and an unsorted region, then iterates through the unsorted region, placing each element in its correct position within the sorted region.
+
+## 2. When is Insertion Sort most suitable?
+
+**Answer:**
+Insertion Sort is most suitable for small datasets or partially sorted arrays due to its simplicity and ease of implementation.
+
+## Multiple Choice Questions (MCQs)
+
+### 3. What is the time complexity of Insertion Sort?
+
+- [ ] O(log n)
+- [ ] O(n)
+- [x] O(n^2)
+- [ ] O(n log n)
+
+### 4. In the Insertion Sort algorithm, what is the role of the sorted region?
+
+- [ ] It contains only odd numbers.
+- [ ] It remains empty throughout the process.
+- [x] It grows with each iteration, containing sorted elements.
+- [ ] It is randomly rearranged.
+
+### 5. How does Insertion Sort compare to more advanced algorithms like quicksort in terms of efficiency?
+
+- [ ] Insertion Sort is always more efficient.
+- [ ] QuickSort is less efficient for small datasets.
+- [x] QuickSort is generally more efficient for large datasets.
+- [ ] There is no significant difference in efficiency.
