@@ -39,11 +39,17 @@ public:
     }
 
     void sort() {
+    	bool sorted;
           for(int i=0;i<size;i++){
-        	for(int j=1;j<size;j++){
+          	sorted = true;
+        	for(int j=1;j<size - i;j++){
          		if(arr[j] < arr[j-1]){
          			swap(arr[j],arr[j-1]);
+         			sorted = false;
         		}
+        		if(sorted){
+        			return;
+				}
 			}		   
     	}
 	}
