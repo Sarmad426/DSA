@@ -47,10 +47,10 @@ public:
          			swap(arr[j],arr[j-1]);
          			sorted = false;
         		}
-        		if(sorted){
+			}	
+			if(sorted){
         			return;
-				}
-			}		   
+				}	   
     	}
 	}
 };
