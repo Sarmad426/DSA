@@ -63,21 +63,23 @@ public:
         num2 = temp;
     }
 
+
     void sort() {
-        bool swapped = true;
-
-        while (swapped) {
-            swapped = false;
-            for (int i = 0; i < size - 1; i++) {
-                if (arr[i] > arr[i + 1]) {
-                    swap(arr[i], arr[i + 1]);
-                    swapped = true;
-                }
-            }
-        }
-    }
+    	bool sorted;
+          for(int i=0;i<size;i++){
+          	sorted = true;
+        	for(int j=1;j<size - i;j++){
+         		if(arr[j] < arr[j-1]){
+         			swap(arr[j],arr[j-1]);
+         			sorted = false;
+        		}
+        		if(sorted){
+        			return;
+				}
+			}		   
+    	}
+	}
 };
-
 int main() {
     Bubble_Sort array;
     array.input_array();
