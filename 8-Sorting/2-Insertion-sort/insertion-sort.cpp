@@ -31,21 +31,17 @@ public:
         }
     }
 
-    void sort() {
-        int key, j;
-
-        for (int i = 1; i < size; i++) {
-            key = arr[i];
-            j = i - 1;
-
-            while (j>=0 && arr[j] > key) {
-                arr[j + 1] = arr[j];
-                j = j - 1;
+   void sort(){
+            for(int i=1;i<size;i++){
+                int current = arr[i];
+                int j= i-1;
+                while(j>=0 && arr[j]> current){
+                    arr[j+1] = arr[j];
+                    j--;
+                }
+                arr[j+1] = current;
             }
-
-            arr[j + 1] = key;
         }
-    }
 };
 
 int main() {
