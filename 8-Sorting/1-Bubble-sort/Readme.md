@@ -72,11 +72,11 @@ public:
          		if(arr[j] < arr[j-1]){
          			swap(arr[j],arr[j-1]);
          			sorted = false;
-        		}
-        		if(sorted){
-        			return;
-				}
-			}		   
+			}
+		}
+		if(sorted){
+			return;
+		}			   
     	}
 	}
 };
