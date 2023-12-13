@@ -39,13 +39,13 @@ public:
 
     void sort() {
         for (int i = 0; i < size - 1; i++) {
-            int minIndex = i;
+            int min = i;
             for (int j = i + 1; j < size; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+                if (arr[j] < arr[min]) {
+                    min = j;
                 }
             }
-            swap(arr[i], arr[minIndex]);
+            swap(arr[i], arr[min]);
         }
     }
 };
@@ -56,4 +56,3 @@ int main() {
     array.sort();
     array.display_array();
 }
-
