@@ -37,12 +37,12 @@ Algorithm complexity is a critical measure of an algorithm's efficiency, providi
 - **Definition**: Divides input into smaller portions with each step.
 - **Purpose**: Efficient for large datasets with quick access.
 
-## Polynomial Time (O(n^k))
+## Polynomial Time (O(n<sup>k</sup>))
 
 - **Definition**: Execution time increases with input size, governed by the degree 'k'.
 - **Purpose**: Useful for problems with known polynomial growth rates.
 
-## Exponential Time (O(2^n))
+## Exponential Time (O(2<sup>n</sup>))
 
 - **Definition**: Execution time grows exponentially with input size.
 - **Purpose**: Impractical for large inputs due to rapid growth.

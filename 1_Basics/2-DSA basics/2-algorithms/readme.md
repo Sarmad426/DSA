@@ -47,6 +47,7 @@ START
 3. Calculate c as a + b.
 4. Display c.
 5. STOP
+
 In the design and analysis of algorithms, the second method is often used. It simplifies the analysis by focusing on the relevant operations. Including step numbers is optional.
 
 Algorithms guide programmers in coding programs and provide a systematic approach to problem-solving. Keep in mind that multiple algorithms can solve the same problem in different ways.

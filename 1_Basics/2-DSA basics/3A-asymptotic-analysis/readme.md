@@ -17,6 +17,6 @@ It measures the worst case time complexity.
 
 Expresses lower bound of an algorithm. Measures best case.
 
-### Theta Notation
+### Theta Notation &theta;
 
 Expresses both upper and lower bound of an algorithm.

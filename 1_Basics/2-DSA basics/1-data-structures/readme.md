@@ -39,7 +39,7 @@ As applications become more complex and data-rich, three common problems arise:
 
 To address these problems, data structures come to the rescue by organizing data in a way that allows for quick and efficient data retrieval.
 
-# Execution Time Cases
+## Execution Time Cases
 
 Comparing data structure execution times involves considering three cases:
 
@@ -49,7 +49,7 @@ Comparing data structure execution times involves considering three cases:
 
 3. **Best Case**: This scenario represents the minimum possible execution time of an operation. If an operation takes ƒ(n) time, the actual time may be a random number, but it won't exceed ƒ(n).
 
-# Basic Terminology
+## Basic Terminology
 
 - **Data**: Values or sets of values.
 - **Data Item**: A single unit of values.
@@ -60,5 +60,3 @@ Comparing data structure execution times involves considering three cases:
 - **Field**: A single elementary unit of information representing an entity's attribute.
 - **Record**: A collection of field values for a given entity.
 - **File**: A collection of records for entities within a specific entity set.
-
-
